@@ -27,7 +27,7 @@
 
 <!--========================================================================< Login >==============================================================================-->
 
-<section>
+    <section id="loginSection">
     <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div class="bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
@@ -42,7 +42,7 @@
                     <div class="w-full flex-1 mt-8">
                         <div class="flex flex-col items-center">
                             <button
-                                    class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                                    class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                 <div class="bg-white p-2 rounded-full">
                                     <svg class="w-4" viewBox="0 0 533.5 544.3">
                                         <path
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
+            <div class="flex-1 bg-gradient-to-r from-teal-400 to-blue-500 text-center hidden lg:flex">
                 <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
                      style="background-image: url('assets/images/farm_logo.png');">
                 </div>
@@ -116,9 +116,10 @@
 </section>
 
 <!--========================================================================< /Login >==============================================================================-->
+
 <!--========================================================================< SignUp >==============================================================================-->
 
-<section>
+    <section id="signUpSection">
     <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div class="bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
@@ -133,7 +134,7 @@
                     <div class="w-full flex-1 mt-8">
                         <div class="flex flex-col items-center">
                             <button
-                                    class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                                    class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-white text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                 <div class="bg-white p-2 rounded-full">
                                     <svg class="w-4" viewBox="0 0 533.5 544.3">
                                         <path
@@ -213,7 +214,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
+            <div class="flex-1 bg-gradient-to-r from-teal-400 to-blue-500 text-center hidden lg:flex">
                 <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
                      style="background-image: url('assets/images/farm_logo.png');">
                 </div>
@@ -223,7 +224,626 @@
 </section>
 
 <!--========================================================================< /SignUp >==============================================================================-->
-<!--========================================================================< Dashboard >==============================================================================-->
-<!--========================================================================< /Dashboard >==============================================================================-->
+
+<!--========================================================================< Field Management >==============================================================================-->
+
+    <section id="fieldSection">
+        <div class="min-h-screen bg-gray-100 p-6">
+            <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-4">
+                    <h1 class="text-2xl font-bold text-gray-800">Field Management</h1>
+                    <button
+                            class="bg-indigo-500 hover:bg-indigo-500 text-white px-4 py-2 rounded-md"
+                            onclick="toggleFieldModal(true)"
+                    >
+                        + Add Field
+                    </button>
+                </div>
+
+                <!-- Field Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead class="bg-gray-200 text-gray-600">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Code</th>
+                            <th class="py-3 px-4 text-left">Name</th>
+                            <th class="py-3 px-4 text-left">Location</th>
+                            <th class="py-3 px-4 text-left">Extent (Sq. m)</th>
+                            <th class="py-3 px-4 text-left">Crops</th>
+                            <th class="py-3 px-4 text-left">Staff</th>
+                            <th class="py-3 px-4 text-left">Image 1</th>
+                            <th class="py-3 px-4 text-left">Image 2</th>
+                            <th class="py-3 px-4 text-left">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                        <!-- Example Row -->
+                        <tr class="border-t">
+                            <td class="py-3 px-4">FLD001</td>
+                            <td class="py-3 px-4">North Field</td>
+                            <td class="py-3 px-4">GPS Coordinates</td>
+                            <td class="py-3 px-4">1500</td>
+                            <td class="py-3 px-4">Wheat, Corn</td>
+                            <td class="py-3 px-4">John Doe, Jane Smith</td>
+                            <td class="py-3 px-4">
+                                <img src="image1.jpg" alt="Field Image 1" class="w-12 h-12 object-cover rounded">
+                            </td>
+                            <td class="py-3 px-4">
+                                <img src="image2.jpg" alt="Field Image 2" class="w-12 h-12 object-cover rounded">
+                            </td>
+                            <td class="py-3 px-4">
+                                <button class="text-indigo-500 hover:text-indigo-500">Edit</button>
+                                <button class="text-red-500 hover:text-red-700 ml-4">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Field Modal -->
+        <div id="addFieldModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                <h2 class="text-xl font-semibold mb-4">Add New Field</h2>
+                <form>
+                    <label class="block mb-2 text-gray-700">Field Code</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter code" />
+
+                    <label class="block mb-2 text-gray-700">Field Name</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter name" />
+
+                    <label class="block mb-2 text-gray-700">Location (GPS)</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter coordinates" />
+
+                    <label class="block mb-2 text-gray-700">Extent (Sq. m)</label>
+                    <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter extent size" />
+
+                    <label class="block mb-2 text-gray-700">Crops</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter crop types" />
+
+                    <label class="block mb-2 text-gray-700">Staff</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter staff names" />
+
+                    <label class="block mb-2 text-gray-700">Field Image 1</label>
+                    <input type="file" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                    <label class="block mb-2 text-gray-700">Field Image 2</label>
+                    <input type="file" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-gray-300 px-4 py-2 rounded-md mr-2" onclick="toggleFieldModal(false)">Cancel</button>
+                        <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function toggleFieldModal(show) {
+                document.getElementById('addFieldModal').classList.toggle('hidden', !show);
+            }
+        </script>
+    </section>
+
+<!--========================================================================< /Field Management >==============================================================================-->
+
+<!--========================================================================< Crop Management >==============================================================================-->
+
+    <section id="cropSection">
+    <div class="min-h-screen bg-gray-100 p-6">
+        <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Crop Management</h1>
+                <button
+                        class="bg-indigo-500 hover:bg-indigo-500 text-white px-4 py-2 rounded-md"
+                        onclick="toggleCropModal(true)"
+                >
+                    + Add Crop
+                </button>
+            </div>
+
+            <!-- Crop Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Crop Code</th>
+                        <th class="py-3 px-4 text-left">Common Name</th>
+                        <th class="py-3 px-4 text-left">Scientific Name</th>
+                        <th class="py-3 px-4 text-left">Category</th>
+                        <th class="py-3 px-4 text-left">Season</th>
+                        <th class="py-3 px-4 text-left">Field</th>
+                        <th class="py-3 px-4 text-left">Image</th>
+                        <th class="py-3 px-4 text-left">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                    <!-- Example Row -->
+                    <tr class="border-t">
+                        <td class="py-3 px-4">CRP001</td>
+                        <td class="py-3 px-4">Wheat</td>
+                        <td class="py-3 px-4">Triticum aestivum</td>
+                        <td class="py-3 px-4">Cereal</td>
+                        <td class="py-3 px-4">Winter</td>
+                        <td class="py-3 px-4">North Field</td>
+                        <td class="py-3 px-4">
+                            <img src="crop-image.jpg" alt="Crop Image" class="w-12 h-12 object-cover rounded">
+                        </td>
+                        <td class="py-3 px-4">
+                            <button class="text-indigo-500 hover:text-indigo-500">Edit</button>
+                            <button class="text-red-500 hover:text-red-700 ml-4">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Crop Modal -->
+    <div id="addCropModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Add New Crop</h2>
+            <form>
+                <label class="block mb-2 text-gray-700">Crop Code</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter crop code" />
+
+                <label class="block mb-2 text-gray-700">Common Name</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter common name" />
+
+                <label class="block mb-2 text-gray-700">Scientific Name</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter scientific name" />
+
+                <label class="block mb-2 text-gray-700">Category</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter crop category" />
+
+                <label class="block mb-2 text-gray-700">Season</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter crop season" />
+
+                <label class="block mb-2 text-gray-700">Field</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter field details" />
+
+                <label class="block mb-2 text-gray-700">Crop Image</label>
+                <input type="file" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                <div class="flex justify-end">
+                    <button type="button" class="bg-gray-300 px-4 py-2 rounded-md mr-2" onclick="toggleCropModal(false)">Cancel</button>
+                    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">Add Crop</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleCropModal(show) {
+            document.getElementById('addCropModal').classList.toggle('hidden', !show);
+        }
+    </script>
+</section>
+
+<!--========================================================================< /Crop Management >==============================================================================-->
+
+<!--========================================================================< Staff Management >==============================================================================-->
+
+    <section id="staffSection">
+    <div class="min-h-screen bg-gray-100 p-6">
+        <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Staff Management</h1>
+                <button
+                        class="bg-indigo-500 hover:bg-indigo-500 text-white px-4 py-2 rounded-md"
+                        onclick="toggleStaffModal(true)"
+                >
+                    + Add Staff
+                </button>
+            </div>
+
+            <!-- Staff Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-3 px-4 text-left">ID</th>
+                        <th class="py-3 px-4 text-left">First Name</th>
+                        <th class="py-3 px-4 text-left">Last Name</th>
+                        <th class="py-3 px-4 text-left">Designation</th>
+                        <th class="py-3 px-4 text-left">Gender</th>
+                        <th class="py-3 px-4 text-left">Joined Date</th>
+                        <th class="py-3 px-4 text-left">DOB</th>
+                        <th class="py-3 px-4 text-left">Contact</th>
+                        <th class="py-3 px-4 text-left">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                    <!-- Example Row -->
+                    <tr class="border-t">
+                        <td class="py-3 px-4">STF001</td>
+                        <td class="py-3 px-4">John</td>
+                        <td class="py-3 px-4">Doe</td>
+                        <td class="py-3 px-4">Manager</td>
+                        <td class="py-3 px-4">Male</td>
+                        <td class="py-3 px-4">2023-08-15</td>
+                        <td class="py-3 px-4">1990-05-12</td>
+                        <td class="py-3 px-4">+1234567890</td>
+                        <td class="py-3 px-4">
+                            <button class="text-indigo-500 hover:text-indigo-500">Edit</button>
+                            <button class="text-red-500 hover:text-red-700 ml-4">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Staff Modal -->
+    <div id="addStaffModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Add New Staff</h2>
+            <form>
+                <label class="block mb-2 text-gray-700">ID</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter staff ID" />
+
+                <label class="block mb-2 text-gray-700">First Name</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter first name" />
+
+                <label class="block mb-2 text-gray-700">Last Name</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter last name" />
+
+                <label class="block mb-2 text-gray-700">Designation</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter designation" />
+
+                <label class="block mb-2 text-gray-700">Gender</label>
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                    <option value="">Select gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label class="block mb-2 text-gray-700">Joined Date</label>
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                <label class="block mb-2 text-gray-700">DOB</label>
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                <label class="block mb-2 text-gray-700">Address Line 01</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Building no or name" />
+
+                <label class="block mb-2 text-gray-700">Address Line 02</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Lane" />
+
+                <label class="block mb-2 text-gray-700">Address Line 03</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="City" />
+
+                <label class="block mb-2 text-gray-700">Contact No.</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter contact number" />
+
+                <label class="block mb-2 text-gray-700">Email</label>
+                <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter email address" />
+
+                <label class="block mb-2 text-gray-700">Role</label>
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                    <option value="">Select role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Staff">Staff</option>
+                </select>
+
+                <label class="block mb-2 text-gray-700">Field(s)</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Allocated fields or N/A" />
+
+                <label class="block mb-2 text-gray-700">Vehicle(s)</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Allocated vehicles or N/A" />
+
+                <div class="flex justify-end">
+                    <button type="button" class="bg-gray-300 px-4 py-2 rounded-md mr-2" onclick="toggleStaffModal(false)">Cancel</button>
+                    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">Add Staff</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleStaffModal(show) {
+            document.getElementById('addStaffModal').classList.toggle('hidden', !show);
+        }
+    </script>
+</section>
+
+<!--========================================================================< /Staff Management >==============================================================================-->
+
+<!--========================================================================< Crop Monitoring Management >==============================================================================-->
+
+    <section id="cropMonitoringLogsSection">
+    <div class="min-h-screen bg-gray-100 p-6">
+        <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Crop Monitoring Logs</h1>
+                <button
+                        class="bg-indigo-500 hover:bg-indigo-500 text-white px-4 py-2 rounded-md"
+                        onclick="toggleLogModal(true)"
+                >
+                    + Add Log
+                </button>
+            </div>
+
+            <!-- Logs Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Log Code</th>
+                        <th class="py-3 px-4 text-left">Date</th>
+                        <th class="py-3 px-4 text-left">Details</th>
+                        <th class="py-3 px-4 text-left">Observed Image</th>
+                        <th class="py-3 px-4 text-left">Field(s)</th>
+                        <th class="py-3 px-4 text-left">Crop(s)</th>
+                        <th class="py-3 px-4 text-left">Staff</th>
+                        <th class="py-3 px-4 text-left">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                    <!-- Example Row -->
+                    <tr class="border-t">
+                        <td class="py-3 px-4">LOG001</td>
+                        <td class="py-3 px-4">2024-11-10</td>
+                        <td class="py-3 px-4">Observation details...</td>
+                        <td class="py-3 px-4">
+                            <img src="path/to/image.jpg" alt="Observed Image" class="w-16 h-16 object-cover rounded-md" />
+                        </td>
+                        <td class="py-3 px-4">Field1, Field2</td>
+                        <td class="py-3 px-4">Crop1, Crop2</td>
+                        <td class="py-3 px-4">Staff1, Staff2</td>
+                        <td class="py-3 px-4">
+                            <button class="text-indigo-500 hover:text-indigo-500">Edit</button>
+                            <button class="text-red-500 hover:text-red-700 ml-4">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Log Modal -->
+    <div id="addLogModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Add New Monitoring Log</h2>
+            <form>
+                <label class="block mb-2 text-gray-700">Log Code</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter log code" />
+
+                <label class="block mb-2 text-gray-700">Log Date</label>
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                <label class="block mb-2 text-gray-700">Log Details / Observation</label>
+                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter observation details"></textarea>
+
+                <label class="block mb-2 text-gray-700">Observed Image</label>
+                <input type="file" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" />
+
+                <label class="block mb-2 text-gray-700">Field(s)</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter relevant fields" />
+
+                <label class="block mb-2 text-gray-700">Crop(s)</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter relevant crops" />
+
+                <label class="block mb-2 text-gray-700">Staff</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter relevant staff" />
+
+                <div class="flex justify-end">
+                    <button type="button" class="bg-gray-300 px-4 py-2 rounded-md mr-2" onclick="toggleLogModal(false)">Cancel</button>
+                    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">Add Log</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleLogModal(show) {
+            document.getElementById('addLogModal').classList.toggle('hidden', !show);
+        }
+    </script>
+</section>
+
+<!--========================================================================< /Crop Monitoring Management >==============================================================================-->
+
+<!--========================================================================< Vehicle Management >==============================================================================-->
+
+    <section id="vehicleSection">
+    <!-- Vehicle Management Section -->
+    <div class="min-h-screen bg-gray-100 p-6">
+        <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Vehicle Management</h1>
+                <button class="bg-indigo-500 hover:bg-indigo-500 text-white px-4 py-2 rounded-md" onclick="toggleVehicleModal(true)">
+                    + Add Vehicle
+                </button>
+            </div>
+
+            <!-- Vehicle Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Vehicle Code</th>
+                        <th class="py-3 px-4 text-left">License Plate</th>
+                        <th class="py-3 px-4 text-left">Category</th>
+                        <th class="py-3 px-4 text-left">Fuel Type</th>
+                        <th class="py-3 px-4 text-left">Status</th>
+                        <th class="py-3 px-4 text-left">Allocated Staff</th>
+                        <th class="py-3 px-4 text-left">Remarks</th>
+                        <th class="py-3 px-4 text-left">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                    <!-- Example Row -->
+                    <tr class="border-t">
+                        <td class="py-3 px-4">VH001</td>
+                        <td class="py-3 px-4">ABC-1234</td>
+                        <td class="py-3 px-4">Van</td>
+                        <td class="py-3 px-4">Diesel</td>
+                        <td class="py-3 px-4">Available</td>
+                        <td class="py-3 px-4">John Doe</td>
+                        <td class="py-3 px-4">N/A</td>
+                        <td class="py-3 px-4">
+                            <button class="text-indigo-500 hover:text-indigo-500">Edit</button>
+                            <button class="text-red-500 hover:text-red-700 ml-4">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Vehicle Modal -->
+    <div id="addVehicleModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Add New Vehicle</h2>
+            <form>
+                <label class="block mb-2 text-gray-700">Vehicle Code</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter vehicle code" />
+
+                <label class="block mb-2 text-gray-700">License Plate</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter license plate number" />
+
+                <label class="block mb-2 text-gray-700">Category</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Vehicle category (e.g., Van)" />
+
+                <label class="block mb-2 text-gray-700">Fuel Type</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Fuel type" />
+
+                <label class="block mb-2 text-gray-700">Status</label>
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                    <option value="">Select status</option>
+                    <option value="Available">Available</option>
+                    <option value="Out of service">Out of service</option>
+                </select>
+
+                <label class="block mb-2 text-gray-700">Allocated Staff</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Assigned driver" />
+
+                <label class="block mb-2 text-gray-700">Remarks</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Any remarks or N/A" />
+
+                <div class="flex justify-end">
+                    <button type="button" class="bg-gray-300 px-4 py-2 rounded-md mr-2" onclick="toggleVehicleModal(false)">Cancel</button>
+                    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">Add Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleVehicleModal(show) {
+            document.getElementById('addVehicleModal').classList.toggle('hidden', !show);
+        }
+    </script>
+</section>
+
+<!--========================================================================< /Vehicle Management >==============================================================================-->
+
+
+<!--========================================================================< Equipment >==============================================================================-->
+
+<section>
+    <div class="min-h-screen bg-gray-100 p-6">
+        <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-gray-800">Equipment Management</h1>
+                <button
+                        class="bg-indigo-500 hover:bg-indigo-500 text-white px-4 py-2 rounded-md"
+                        onclick="toggleEquipmentModal(true)"
+                >
+                    + Add Equipment
+                </button>
+            </div>
+
+            <!-- Equipment Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Equipment ID</th>
+                        <th class="py-3 px-4 text-left">Name</th>
+                        <th class="py-3 px-4 text-left">Type</th>
+                        <th class="py-3 px-4 text-left">Status</th>
+                        <th class="py-3 px-4 text-left">Assigned Staff</th>
+                        <th class="py-3 px-4 text-left">Assigned Field</th>
+                        <th class="py-3 px-4 text-left">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                    <!-- Example Row -->
+                    <tr class="border-t">
+                        <td class="py-3 px-4">EQ001</td>
+                        <td class="py-3 px-4">Tractor</td>
+                        <td class="py-3 px-4">Mechanical</td>
+                        <td class="py-3 px-4">Available</td>
+                        <td class="py-3 px-4">John Doe</td>
+                        <td class="py-3 px-4">Field A</td>
+                        <td class="py-3 px-4">
+                            <button class="text-indigo-500 hover:text-indigo-500">Edit</button>
+                            <button class="text-red-500 hover:text-red-700 ml-4">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Equipment Modal -->
+    <div id="addEquipmentModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Add New Equipment</h2>
+            <form>
+                <label class="block mb-2 text-gray-700">Equipment ID</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter equipment ID" />
+
+                <label class="block mb-2 text-gray-700">Name</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter equipment name" />
+
+                <label class="block mb-2 text-gray-700">Type</label>
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                    <option>Electrical</option>
+                    <option>Mechanical</option>
+                </select>
+
+                <label class="block mb-2 text-gray-700">Status</label>
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                    <option>Available</option>
+                    <option>Unavailable</option>
+                </select>
+
+                <label class="block mb-2 text-gray-700">Assigned Staff</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter assigned staff (or N/A)" />
+
+                <label class="block mb-2 text-gray-700">Assigned Field</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4" placeholder="Enter assigned field (or N/A)" />
+
+                <div class="flex justify-end">
+                    <button type="button" class="bg-gray-300 px-4 py-2 rounded-md mr-2" onclick="toggleEquipmentModal(false)">Cancel</button>
+                    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">Add Equipment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleEquipmentModal(show) {
+            document.getElementById('addEquipmentModal').classList.toggle('hidden', !show);
+        }
+    </script>
+</section>
+
+<!--========================================================================< /Equipment >==============================================================================-->
 </body>
 </html>
