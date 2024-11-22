@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -75,12 +76,17 @@
 
                         <div class="mx-auto max-w-xs">
                             <input
+                                    id="loginEmail"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                    type="email" placeholder="Email" />
+                                    type="email"
+                                    placeholder="Email" />
                             <input
+                                    id="loginPassword"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="password" placeholder="Password" />
+                                    type="password"
+                                    placeholder="Password" />
                             <button
+                                    id="loginButton"
                                     class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                 <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
                                      stroke-linecap="round" stroke-linejoin="round">
@@ -92,6 +98,7 @@
                                 Login
                             </span>
                             </button>
+                            <a>if</a>
                             <p class="mt-6 text-xs text-gray-600 text-center">
                                 I agree to abide by templatana's
                                 <a href="#" class="border-b border-gray-500 border-dotted">
@@ -120,7 +127,7 @@
 <!--========================================================================< SignUp >==============================================================================-->
 
     <section id="signUpSection">
-    <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+    <div class="<!--hidden--> min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div class="bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                 <div>
@@ -167,28 +174,43 @@
 
                         <div class="mx-auto max-w-xs">
                             <input
+                                    id="signUpEmail"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                    type="email" placeholder="Email" />
+                                    type="email"
+                                    placeholder="Email" />
                             <input
+                                    id="signUpFirstName"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="text" placeholder="First Name" />
+                                    type="text"
+                                    placeholder="First Name" />
                             <input
+                                    id="signUpLastName"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="text" placeholder="Last Name" />
+                                    type="text"
+                                    placeholder="Last Name" />
                             <input
+                                    id="signUpBirthday"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="date" placeholder="BirthDay" />
+                                    type="date"
+                                    placeholder="BirthDay" />
                             <input
+                                    id="signUpNIC"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="text" placeholder="NIC" />
+                                    type="text"
+                                    placeholder="NIC" />
                             <input
+                                    id="signUpPassword"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="password" placeholder="New Password" />
+                                    type="password"
+                                    placeholder="New Password" />
                             <input
+                                    id="signUpConfirmPassword"
                                     class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                    type="password" placeholder="Confirm Password" />
+                                    type="password"
+                                    placeholder="Confirm Password" />
 
                             <button
+                                    id="signUpButton"
                                     class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                 <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
                                      stroke-linecap="round" stroke-linejoin="round">
@@ -224,6 +246,93 @@
 </section>
 
 <!--========================================================================< /SignUp >==============================================================================-->
+
+<script>
+    $(document).ready(function () {
+        $("#signUpButton").click(function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const userData = {
+                email: $("#signUpEmail").val(),
+                firstName: $("#signUpFirstName").val(),
+                lastName: $("#signUpLastName").val(),
+                birthDate: $("#signUpBirthday").val(),
+                nic: $("#signUpNIC").val(),
+                password: $("#signUpPassword").val(),
+                confirmPassword: $("#signUpConfirmPassword").val(),
+            };
+
+            // Validation
+            if (userData.password !== userData.confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // AJAX request
+            $.ajax({
+                url: "/api/users/signup", // Backend endpoint
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(userData),
+                success: function (response) {
+                    alert(response.message);
+                },
+                error: function (xhr) {
+                    alert("Error: " + xhr.responseText);
+                },
+            });
+        });
+    });
+</script>
+
+
+<!--========================================================================< Dashboard >==============================================================================-->
+<!-- Sidebar for larger screens -->
+<div class="<!--hidden--> flex h-screen" >
+    <div class="hidden md:flex md:w-1/4 lg:w-1/5 bg-blue-950 text-white flex-col space-y-4 px-4 py-6">
+        <h1 class="text-2xl font-bold text-center mb-6">Dashboard</h1>
+        <nav>
+            <a href="#fieldSection" class="block py-2 px-4 rounded-lg hover:bg-blue-700">Field Section</a>
+            <a href="#cropSection" class="block py-2 px-4 rounded-lg hover:bg-blue-700">Crop Section</a>
+            <a href="#staffSection" class="block py-2 px-4 rounded-lg hover:bg-blue-700">Staff Section</a>
+            <a href="#cropMonitoringLogsSection" class="block py-2 px-4 rounded-lg hover:bg-blue-700">Crop Monitoring</a>
+            <a href="#vehicleSection" class="block py-2 px-4 rounded-lg hover:bg-blue-700">Vehicle Section</a>
+            <a href="#equipmentSection" class="block py-2 px-4 rounded-lg hover:bg-blue-700">Equipment Section</a>
+        </nav>
+    </div>
+    <!-- Sidebar for mobile screens -->
+    <div id="mobile-menu" class="fixed inset-0 bg-blue-950 text-white p-6 md:hidden hidden">
+        <button id="close-menu" class="text-white text-2xl mb-4">✕</button>
+        <nav>
+            <a href="#fieldSection" class="block py-2">Field Section</a>
+            <a href="#cropSection" class="block py-2">Crop Section</a>
+            <a href="#staffSection" class="block py-2">Staff Section</a>
+            <a href="#cropMonitoringLogsSection" class="block py-2">Crop Monitoring</a>
+            <a href="#vehicleSection" class="block py-2">Vehicle Section</a>
+            <a href="#equipmentSection" class="block py-2">Equipment Section</a>
+        </nav>
+    </div>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <!--<script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenu = document.getElementById("close-menu");
+
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+        });
+    </script>-->
+
+    <!-- Main Content Area -->
+    <div class="flex-1 p-6 overflow-y-auto">
+        <button id="menu-toggle" class="md:hidden block text-blue-950 p-2 mb-4">☰</button>
+<!--========================================================================< /Dashboard >==============================================================================-->
 
 <!--========================================================================< Field Management >==============================================================================-->
 
@@ -320,11 +429,11 @@
             </div>
         </div>
 
-        <script>
+<!--        <script>
             function toggleFieldModal(show) {
                 document.getElementById('addFieldModal').classList.toggle('hidden', !show);
             }
-        </script>
+        </script>-->
     </section>
 
 <!--========================================================================< /Field Management >==============================================================================-->
@@ -417,11 +526,11 @@
         </div>
     </div>
 
-    <script>
+<!--    <script>
         function toggleCropModal(show) {
             document.getElementById('addCropModal').classList.toggle('hidden', !show);
         }
-    </script>
+    </script>-->
 </section>
 
 <!--========================================================================< /Crop Management >==============================================================================-->
@@ -546,11 +655,11 @@
         </div>
     </div>
 
-    <script>
+<!--    <script>
         function toggleStaffModal(show) {
             document.getElementById('addStaffModal').classList.toggle('hidden', !show);
         }
-    </script>
+    </script>-->
 </section>
 
 <!--========================================================================< /Staff Management >==============================================================================-->
@@ -643,11 +752,11 @@
         </div>
     </div>
 
-    <script>
+<!--    <script>
         function toggleLogModal(show) {
             document.getElementById('addLogModal').classList.toggle('hidden', !show);
         }
-    </script>
+    </script>-->
 </section>
 
 <!--========================================================================< /Crop Monitoring Management >==============================================================================-->
@@ -740,11 +849,11 @@
         </div>
     </div>
 
-    <script>
+<!--    <script>
         function toggleVehicleModal(show) {
             document.getElementById('addVehicleModal').classList.toggle('hidden', !show);
         }
-    </script>
+    </script>-->
 </section>
 
 <!--========================================================================< /Vehicle Management >==============================================================================-->
@@ -752,7 +861,7 @@
 
 <!--========================================================================< Equipment >==============================================================================-->
 
-<section>
+    <section id="equipmentSection">
     <div class="min-h-screen bg-gray-100 p-6">
         <div class="max-w-6xl mx-auto bg-white p-4 rounded-lg shadow-md">
             <!-- Header -->
@@ -837,13 +946,15 @@
         </div>
     </div>
 
-    <script>
+<!--    <script>
         function toggleEquipmentModal(show) {
             document.getElementById('addEquipmentModal').classList.toggle('hidden', !show);
         }
-    </script>
+    </script>-->
 </section>
 
 <!--========================================================================< /Equipment >==============================================================================-->
+    </div>
+</div>
 </body>
 </html>
